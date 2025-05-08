@@ -45,4 +45,11 @@ public class InventoryDAOImpl implements InventoryDAO {
             entityManager.remove(inventory);
         }
     }
+
+    @Override
+    public List<Inventory> findEnabledItems() {
+        String jpql = "SELECT i FROM Inventory i WHERE i.disabled = false";
+        return entityManager.createQuery(jpql, Inventory.class).getResultList();
+    }
+
 }

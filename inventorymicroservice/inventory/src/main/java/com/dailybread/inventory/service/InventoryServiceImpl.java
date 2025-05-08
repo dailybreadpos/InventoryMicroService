@@ -38,4 +38,10 @@ public class InventoryServiceImpl implements InventoryService {
     public void delete(Long id) {
         inventoryDao.deleteById(id);
     }
+
+    @Override
+    public List<Inventory> getEnabledItems() {
+        return inventoryDao.findEnabledItems();
+    }
+
 }
