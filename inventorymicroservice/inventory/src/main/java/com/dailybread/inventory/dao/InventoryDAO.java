@@ -13,4 +13,7 @@ public interface InventoryDAO {
     Inventory save(Inventory inventory);
 
     void deleteById(Long id);
+
+    List<Inventory> findEnabledItems();
+
 }

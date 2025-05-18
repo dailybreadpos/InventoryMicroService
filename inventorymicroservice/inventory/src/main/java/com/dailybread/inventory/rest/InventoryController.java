@@ -107,4 +107,10 @@ public class InventoryController {
         inventory.setDisabled(!inventory.isDisabled());
         return inventoryService.save(inventory);
     }
+
+    @GetMapping("/enabled")
+    public List<Inventory> getEnabledInventory() {
+        return inventoryService.getEnabledItems();
+    }
+
 }
