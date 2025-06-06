@@ -5,6 +5,7 @@ import com.dailybread.inventory.entity.Inventory;
 import com.dailybread.inventory.exception.InventoryNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional; // Import Transactional
 
 import java.util.List;
 
@@ -30,11 +31,13 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
+    @Transactional // ADDED: Ensure this method runs within a transaction
     public Inventory save(Inventory item) {
         return inventoryDao.save(item);
     }
 
     @Override
+    @Transactional // ADDED: Ensure delete also runs within a transaction
     public void delete(Long id) {
         inventoryDao.deleteById(id);
     }
